@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import OneComponent from './OneComponent.js'
 export default class TaskAdd extends Component {
     state = {
+        id: 0,
         name: '',
         descrp: '',
         hideTask: false
@@ -18,14 +19,14 @@ export default class TaskAdd extends Component {
         this.setState(curState => ({
             hideTask: !curState.hideTask
         }))
+        this.props.update(this.state.id, this.state.name, this.state.descrp, this.state.completed = false)
     }
     render() {
         return (
-            <div>
+            <div class = "onetask">
                 {!this.state.hideTask && <input value = {this.state.name} onChange = {this.handleNameChange}/>}
                 {!this.state.hideTask && <input value = {this.state.descrp} onChange = {this.handleDescriptionChange}/>}
                 {!this.state.hideTask && <button onClick = {this.handleClick}>Submit</button>}
-                {this.state.hideTask && <OneComponent id = {42} name = {this.state.name} description = {this.state.descrp} completed = {false}/>}
             </div>
         )
     }

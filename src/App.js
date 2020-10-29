@@ -81,12 +81,35 @@ class App extends React.Component {
     })
   }
 
+  addTask = (id, name, description, completed) => {
+    this.setState(currentState => {
+      const newTasks = [...currentState.tasks, {
+        name: name,
+        id: id,
+        description: description,
+        completed: completed
+      }]
+      return {
+        tasks: newTasks
+      }
+    })
+  }
+
+
+  updateCompleted = (id) => {
+    this.setState(currentState => {
+      let newTasks = [...currentState.tasks] //PROBLEM
+      newTasks.find(item => item.id === id).completed = true
+      return {
+        tasks: newTasks}
+    })
+  }
   
   render() {
     return (
       <div>
-      {this.state.tasks.map(it => <OneComponent id = {it.id} name = {it.name} description = {it.description} completed = {it.completed}/>)}
-      <TaskAdd></TaskAdd>
+      {this.state.tasks.map(it => <OneComponent id = {it.id} name = {it.name} description = {it.description} completed = {it.completed} update = {this.updateCompleted}/>)}
+      <TaskAdd update = {this.addTask}/>
       </div>
    )
   }
