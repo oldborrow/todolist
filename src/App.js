@@ -98,12 +98,8 @@ class App extends React.Component {
 
   updateCompleted = (id) => {
     this.setState(currentState => {
-      const newTasks = [...currentState.tasks]
-      const index = newTasks.findIndex(t => t.id === id)
-      const newCompeleted = !newTasks[index].completed
-
-      newTasks[index] = { ...newTasks[index], completed: newCompeleted }
-      
+      let newTasks = [...currentState.tasks] //PROBLEM
+      newTasks.find(item => item.id === id).completed = true
       return {
         tasks: newTasks}
     })
