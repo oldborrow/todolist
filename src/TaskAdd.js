@@ -4,8 +4,7 @@ export default class TaskAdd extends Component {
     state = {
         id: 0,
         name: '',
-        descrp: '',
-        hideTask: false
+        descrp: ''
     }
     handleNameChange = event => {
         const {value} = event.target
@@ -24,9 +23,9 @@ export default class TaskAdd extends Component {
     render() {
         return (
             <div class = "onetask">
-                {!this.state.hideTask && <input value = {this.state.name} onChange = {this.handleNameChange}/>}
-                {!this.state.hideTask && <input value = {this.state.descrp} onChange = {this.handleDescriptionChange}/>}
-                {!this.state.hideTask && <button onClick = {this.handleClick}>Submit</button>}
+                {<input value = {this.state.name} onChange = {this.handleNameChange}/>}
+                {<input value = {this.state.descrp} onChange = {this.handleDescriptionChange}/>}
+                {<button onClick = {this.handleClick}>Submit</button>}
             </div>
         )
     }

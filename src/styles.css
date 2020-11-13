@@ -1,14 +1,17 @@
 :root {
+    display: flex;
+    justify-content: center;
     background: greenyellow;
 }
-
 
 .onetask {
     width: 300px;
     height: 125px;
     background: seagreen;
-    position: relative;
-    left: 500px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .name {
