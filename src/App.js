@@ -1,15 +1,12 @@
 import React from 'react'
 import './App.css'
 import './styles.css'
-import OneComponent from './OneComponent.js'
-import TaskAdd from './TaskAdd'
-
 class App extends React.Component {
   state = {
     tasks: [{
       id: 123,
       name: 'first',
-      description: 'What needs to be done',
+      description: 'What needs to b',
       completed: true
     }, {
       id: 1235,
@@ -80,36 +77,24 @@ class App extends React.Component {
       }
     })
   }
-
-  addTask = (id, name, description, completed) => {
-    this.setState(currentState => {
-      const newTasks = [...currentState.tasks, {
-        name: name,
-        id: id,
-        description: description,
-        completed: completed
-      }]
-      return {
-        tasks: newTasks
-      }
-    })
+  OneComponent = ({props, click}) => {
+    return (
+      <div class = "onetask">
+        <div class = "name">{props.name}</div>
+        <div>{props.description}</div>
+        <div>{String(props.completed)}</div>
+        <button onClick = {() => click(props.id)}>
+          Change status
+        </button>
+      </div>
+    )
   }
-
-
-  updateCompleted = (id) => {
-    this.setState(currentState => {
-      let newTasks = [...currentState.tasks] //PROBLEM
-      newTasks.find(item => item.id === id).completed = true
-      return {
-        tasks: newTasks}
-    })
-  }
-  
   render() {
     return (
       <div>
-      {this.state.tasks.map(it => <OneComponent id = {it.id} name = {it.name} description = {it.description} completed = {it.completed} update = {this.updateCompleted}/>)}
-      <TaskAdd update = {this.addTask}/>
+      {this.state.tasks.map(it => <this.OneComponent 
+      props = {it}
+      click = {this.Change}/>)}
       </div>
    )
   }
