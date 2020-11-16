@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import './styles.scss'
+import './styles.back.scss'
 import OneComponent from './OneComponent.js'
 import TaskAdd from './TaskAdd'
 

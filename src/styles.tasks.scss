@@ -1,10 +1,4 @@
-$primaryBtn: rgb(56, 77, 142);
-
-:root {
-    display: flex;
-    justify-content: center;
-    background: greenyellow;
-}
+$heading: rgb(243, 6, 223);
 
 .onetask {
     width: 300px;
@@ -14,9 +8,14 @@ $primaryBtn: rgb(56, 77, 142);
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    &:hover {
+        background: yellow;
+    }
+    &-notcompleted {
+        background: red;
+    }
 }
 
 .name {
-    color: white;
+    color: $heading;
 }
-
