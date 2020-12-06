@@ -3,12 +3,13 @@ import { renderIntoDocument } from 'react-dom/test-utils'
 import './styles.tasks.scss'
 import classNames from 'classnames/bind'
 import styles from './styles.tasks.scss'
+import {handleDoneChange} from "./actions/tasks";
 
 const cx = classNames.bind(styles)
 
   export default class OneComponent extends Component {
     handleClick = () => {
-      this.props.update(this.props.id)
+      this.props.update()
     }
     render() {
       return (
@@ -23,4 +24,3 @@ const cx = classNames.bind(styles)
       )
     }
   }
-  
